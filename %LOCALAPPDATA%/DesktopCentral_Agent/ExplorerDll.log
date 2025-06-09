@@ -1,7 +1,0 @@
-﻿Date	Time	Severity	PID	TID	Function	Message
-09-06-2025	10:37:58.426	 INFO	164044	155624	DllMain	"DLL_PROCESS_ATTACH Tue Feb 18 16:37:38 2025 11.4.2512.2"
-09-06-2025	10:37:58.443	 INFO	164044	119524	LateInitialization	"Intialization..."
-09-06-2025	10:37:58.443	 INFO	164044	119524	LateInitialization	"Exe = C:\Program Files\Git\usr\bin\sh.exe"
-09-06-2025	10:37:58.444	 INFO	164044	119524	LateInitialization	"IsExplorer = 0"
-09-06-2025	10:37:58.444	 INFO	164044	119524	Edlp::Path::InitializeExcludedPathPatterns	"Windows drive = C:"
-09-06-2025	10:37:58.457	 INFO	164044	119524	LateInitialization	"Intialization finished"

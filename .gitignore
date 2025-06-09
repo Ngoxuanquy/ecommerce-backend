@@ -7,3 +7,4 @@
 .docker/data/*
 /local/
 .env.uat
+/%LOCALAPPDATA%/
