@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectString = 'mongodb://admin:admin@localhost:27017/shopDEV?authSource=admin';
+const connectString = 'mongodb://root:123456@localhost:27017/ecommerce?authSource=admin';
 
 const TestSchema = new mongoose.Schema({ name: String });
 const Test = mongoose.model('Test', TestSchema);

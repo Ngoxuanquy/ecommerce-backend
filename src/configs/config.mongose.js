@@ -1,14 +1,18 @@
-'use strict'
+'use strict';
 
 const mongoose = require('mongoose');
-const {db: {host, name, port, username, password}} = require('./config')
+const {
+    db: { host, name, port, username, password },
+} = require('./config');
 
 const connectString = `mongodb://${username}:${password}@${host}:${port}/${name}?authSource=admin`;
-const {countConnect} = require('../helpers/check.connect');
+// const connectString = 'mongodb://localhost:27017/shopDEV1';
+
+const { countConnect } = require('../helpers/check.connect');
 const MAX_POLL_SIZE = 50;
 const TIME_OUT_CONNECT = 50000;
 
-console.log({connectString})
+console.log({ connectString });
 mongoose.set('strictQuery', true);
 
 class Database {
@@ -20,25 +24,23 @@ class Database {
     connect(type = 'mongodb') {
         if (1 === 1) {
             mongoose.set('debug', true);
-            mongoose.set('debug', {color: true});
+            mongoose.set('debug', { color: true });
         }
 
-        mongoose.connect(connectString, {
-            serverSelectionTimeoutMS: TIME_OUT_CONNECT,
-            maxPoolSize: MAX_POLL_SIZE
-        })
-            .then(
-                _ => {
-                    try {
-                        countConnect();
-                    } catch (e) {
-                        console.log(e);
-                    }
-                    _ => console.log(`Connected mongodb success `);
+        mongoose
+            .connect(connectString, {
+                serverSelectionTimeoutMS: TIME_OUT_CONNECT,
+                maxPoolSize: MAX_POLL_SIZE,
+            })
+            .then(_ => {
+                try {
+                    countConnect();
+                } catch (e) {
+                    console.log(e);
                 }
-            ).catch(
-            err => console.log(`Error connect!`)
-        );
+                _ => console.log(`Connected mongodb success `);
+            })
+            .catch(err => console.log(`Error connect!`));
 
         mongoose.connection.on('connected', () => {
             console.log('Mongodb connected to db success');
